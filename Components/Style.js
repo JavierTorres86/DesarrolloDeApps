@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   list:{
     fontSize:30,
-    marginLeft: -30,
+    marginLeft: 30,
   },
   image:{
     height:100,
@@ -47,5 +47,32 @@ const styles = StyleSheet.create({
     borderColor:"blue",
     borderWidth:2,
   },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    }
+    },
+    modalText: {
+      marginBottom: 15,
+      textAlign: 'center',
+    },
+    textStyle: {
+      color: 'white',
+      fontWeight: 'bold',
+      textAlign: 'center',
+    },
+    centeredView: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 22,
+    },
 });
 export default styles
