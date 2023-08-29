@@ -51,6 +51,7 @@ const clearList = () => {
         </View>
       </Modal>
       </View>
+      
 
 
 <Image
