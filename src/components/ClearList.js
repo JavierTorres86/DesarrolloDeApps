@@ -2,7 +2,6 @@ import { View,Pressable } from 'react-native'
 import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import styles from './Style';
-
 const ClearList = ({setIsModalVisible}) => {
   return (
     <View>
