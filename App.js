@@ -1,7 +1,12 @@
 import React,{useState} from 'react';
-import {Text, View, TextInput,Pressable,Image,FlatList,Modal} from 'react-native';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import styles from './Components/Style.js';
+import {View,FlatList,Modal} from 'react-native';
+import styles from './src/components/Style.js';
+import AddItem  from './src/components/AddItem.js';
+import ListItem from './src/components/ListItem.js';
+import CustomModal from './src/components/CustomModal.js';
+import ClearList from './src/components/ClearList.js';
+import Principal from './src/components/Principal.js';
+import ModalProductos from './src/components/ModalProductos.js';
 
 
 
@@ -15,16 +20,16 @@ const initialState = [
 const [text, setText]= useState("");
 const [list, setList]= useState(initialState);
 const [isModalVisible, setIsModalVisible] = useState(false);
+const [isModalProducto, setIsModalProducto] = useState(false);
 
 
-const addItem = () => {
- 
+
+
+const addItem = () => { 
   list.push({
     id: Math.random(),
     text:text,
     });
-    console.log(list.text)
-
   setList(list);
   setText("");
 };
@@ -32,61 +37,29 @@ const addItem = () => {
 const clearList = () => {
   setList([]);
   setIsModalVisible(false);
-};
-
+  
+ };
+ 
   return (
     <View style={styles.container}>
-   <View style={styles.centeredView}>
-    <Modal transparent={true} visible={isModalVisible}>
-      <View style={styles.modalView}>
-      <Text style={styles.modalText}>¿Estas seguro que deseas eliminar la lista? </Text>
-
-          <Pressable onPress={() => clearList()}>
-            <Text>SI</Text>
-          </Pressable>
-
-          <Pressable onPress={() => setIsModalVisible(false)}>
-            <Text> NO </Text>
-          </Pressable>
-        </View>
+     <View style={styles.centeredView}>
+       <Modal transparent={true} visible={isModalVisible}>
+         <CustomModal setIsModalVisible ={setIsModalVisible} IsModalVisible={isModalVisible}
+          clearList={clearList}/>
+      </Modal>
+       <Modal transparent={true} visible={isModalProducto}>
+         <ModalProductos setIsModalProducto ={setIsModalProducto} isModalProducto={isModalProducto} />
       </Modal>
       </View>
-      
-      
-
-
-<Image
-     style= {styles.image}
-     source={{
-     uri: "https://cdn-icons-png.flaticon.com/512/4797/4797227.png",
-     }}
+      <Principal/>
+      <AddItem text ={text} setText={setText} addItem={addItem}/>
+      <FlatList
+      data={list}
+      keyExtractor={(item)=>item.id}
+      renderItem={({item})=> <ListItem item={item} />}
       />
-
-      <Text style= {styles.titulo}>Lista de Compras</Text>
-
-
-      <View style={styles.buttoncontainer}>
-      <View style={styles.inputcontainer}>
-         <TextInput style={styles.input} placeholder='Ingrese Producto'
-         value={text} onChangeText={(value) => setText(value)}
-         />
+      <ClearList setIsModalVisible={setIsModalVisible}/>
       </View>
-     <Pressable style={styles.button} onPress={()=> addItem()}>
-      <Ionicons  name= "add-circle-outline"size={35} color="red"/>
-     </Pressable>
-     </View>
-
-     <FlatList
-     data={list}
-     keyExtractor={(item)=>item.id}
-     renderItem={({item})=>  (
-     <Text style= {styles.list} > {item.text} </Text>
-     )}
-    />
-    <Pressable style={styles.button} onPress={() => setIsModalVisible(true)}>
-        <Ionicons name="trash" size={40} color="red" />
-      </Pressable>
-       </View>
-  );
+    );
 }
 

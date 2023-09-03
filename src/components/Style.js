@@ -7,11 +7,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: 5000,
+    
   },
 
   titulo:{
     marginTop:40,
-    fontSize: 30,
+    fontSize: 40,
     borderBottomColor:"red",
     borderBottomWidth: 5,
   },
@@ -41,12 +42,10 @@ const styles = StyleSheet.create({
   image:{
     height:100,
     width:100,
+    marginLeft:110,
+    alignItems: "center",
   },
-  lista:{
-    marginTop:5,
-    borderColor:"blue",
-    borderWidth:2,
-  },
+  
   modalView: {
     margin: 20,
     backgroundColor: 'white',
@@ -73,6 +72,8 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: 22,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo semitransparente para cubrir la pantalla
     },
+  
 });
 export default styles
