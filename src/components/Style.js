@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: 22,
-      backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo semitransparente para cubrir la pantalla
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
   
 });
