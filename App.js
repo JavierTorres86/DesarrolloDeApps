@@ -42,6 +42,7 @@ const clearList = () => {
  
   return (
     <View style={styles.container}>
+      
      <View style={styles.centeredView}>
        <Modal transparent={true} visible={isModalVisible}>
          <CustomModal setIsModalVisible ={setIsModalVisible} IsModalVisible={isModalVisible}

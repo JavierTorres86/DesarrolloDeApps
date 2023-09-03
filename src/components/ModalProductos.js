@@ -1,9 +1,6 @@
 import { View, Text, Modal,Pressable} from 'react-native'
 import React from 'react'
 import styles from './Style';
-
-
-
 const ModalProductos = ({ isModalProducto, setIsModalProducto }) => {
   return (
     <View>
